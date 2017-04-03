@@ -14,6 +14,8 @@ gem 'soundcloud'
 group :development, :test do
   gem 'pry'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
 end
 
 group :development do
