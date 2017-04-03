@@ -1,0 +1,13 @@
+%h1 Results for '#{params[:q]}'
+
+- if @search_page.results.empty?
+  %h1 No results found.
+-else
+  .results
+    - @search_page.grouped_results.each do |type, results|
+      .result-group
+        %h1= type.titleize.pluralize
+        %ul
+          - results.each do |result|
+            = link_to result[:uri] do
+              %li= result[:title] || result[:username]
