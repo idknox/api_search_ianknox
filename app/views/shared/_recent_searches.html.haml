@@ -1,0 +1,8 @@
+.recent_searches
+  %h1 Recent Searches
+  %ul
+    - searches.each do |recent_search|
+      %li
+        = link_to search_path(q: recent_search.keyword) do
+          %span.keyword= recent_search.keyword
+          \- #{recent_search.search_count} searches

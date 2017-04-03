@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Api Search - Ian Knox
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+  %body
+    %header
+      .title
+        %h1= link_to 'Public API Search', root_path
+      .sub
+        Search results from
+        = link_to 'Soundcloud', 'http://www.soundcloud.com'
+    = yield
