@@ -2,8 +2,8 @@ class SoundcloudSearch
 
   attr_reader :results
 
-  def initialize(query)
-    @query = query
+  def initialize(opts)
+    @opts = opts
     @service = SoundcloudService.new
     @results = search_results
     save_search
@@ -16,19 +16,19 @@ class SoundcloudSearch
   end
 
   def tracks
-    @service.search_api('/tracks', @query)
+    @service.search_api('/tracks', @opts)
   end
 
   def playlists
-    @service.search_api('/playlists', @query)
+    @service.search_api('/playlists', @opts)
   end
 
   def users
-    @service.search_api('/users', @query)
+    @service.search_api('/users', @opts)
   end
 
   def save_search
-    recent_search = RecentSearch.find_or_initialize_by(keyword: @query)
+    recent_search = RecentSearch.find_or_initialize_by(keyword: @opts[:q])
     recent_search.update(search_count: recent_search.search_count + 1)
   end
 end

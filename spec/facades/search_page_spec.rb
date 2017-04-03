@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe SearchPage do
-  let(:subject) { described_class.new('test') }
+  let(:subject) { described_class.new(q: 'test') }
 
   describe '#results' do
     it 'returns the SoundcloudSearch results' do

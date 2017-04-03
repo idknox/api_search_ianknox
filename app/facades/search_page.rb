@@ -1,6 +1,6 @@
 class SearchPage
-  def initialize(query)
-    @search = SoundcloudSearch.new(query)
+  def initialize(opts)
+    @search = SoundcloudSearch.new(opts)
   end
 
   def results

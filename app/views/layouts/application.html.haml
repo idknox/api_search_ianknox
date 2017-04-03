@@ -9,6 +9,6 @@
       .title
         %h1= link_to 'Public API Search', root_path
       .sub
-        Search results from
-        = link_to 'Soundcloud', 'http://www.soundcloud.com'
+        = link_to 'http://www.soundcloud.com' do
+          = image_tag 'https://developers.soundcloud.com/assets/powered_by_white-371bd6967352fcc89673d4c81f7e5661.png'
     = yield

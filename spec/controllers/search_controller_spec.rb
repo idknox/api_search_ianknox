@@ -12,9 +12,14 @@ describe SearchController do
       expect(assigns(:search_page)).to be_a(SearchPage)
     end
 
-    it 'renders the show template' do
-      get :show
+    it 'renders the show template with a query' do
+      get :show, params: {q: 'test'}
       expect(response).to render_template('show')
+    end
+
+    it 'redirects to home without a query' do
+      get :show
+      expect(response).to redirect_to root_path
     end
   end
 end
