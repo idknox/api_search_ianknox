@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170402190526) do
   enable_extension "plpgsql"
 
   create_table "recent_searches", force: :cascade do |t|
-    t.string   "keyword"
+    t.string   "keyword",                  null: false
     t.integer  "search_count", default: 0, null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
