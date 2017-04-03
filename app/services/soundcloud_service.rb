@@ -3,28 +3,11 @@ class SoundcloudService
     @client = SoundCloud.new(:client_id => ENV['SOUNDCLOUD_CLIENT_ID'])
   end
 
-  def search_results(query)
-    @query = query
-    tracks + playlists + users
-  end
-
-  private
-
-  def tracks
-    search_api('/tracks')
-  end
-
-  def playlists
-    search_api('/playlists')
-  end
-
-  def users
-    search_api('/users')
-  end
-
-  def search_api(path)
-    @client.get(path,
-                q: @query
-    )
+  def search_api(path, q)
+    begin
+      @client.get(path, q: q)
+    rescue SoundCloud::ResponseError
+      []
+    end
   end
 end
