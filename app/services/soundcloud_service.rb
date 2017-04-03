@@ -3,7 +3,7 @@ class SoundcloudService
     @client = SoundCloud.new(:client_id => ENV['SOUNDCLOUD_CLIENT_ID'])
   end
 
-  def search_all(query)
+  def search_results(query)
     @query = query
     tracks + playlists + users
   end
@@ -23,6 +23,8 @@ class SoundcloudService
   end
 
   def search_api(path)
-    @client.get(path, q: @query)
+    @client.get(path,
+                q: @query
+    )
   end
 end

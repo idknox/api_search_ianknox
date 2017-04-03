@@ -5,7 +5,7 @@ class SoundcloudSearch
   def initialize(query)
     @query = query
     service = SoundcloudService.new
-    @results = service.search_all(@query)
+    @results = service.search_results(@query)
     save_search
   end
 
@@ -13,6 +13,6 @@ class SoundcloudSearch
 
   def save_search
     recent_search = RecentSearch.find_or_initialize_by(keyword: @query)
-    recent_search.update(search_count: recent_search.search_count+1)
+    recent_search.update(search_count: recent_search.search_count + 1)
   end
 end
