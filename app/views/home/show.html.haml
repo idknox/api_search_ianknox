@@ -1,3 +1,6 @@
 %section
-  = render partial: 'shared/search'
+  .search
+    %h1 Search Soundcloud using the form below
+    = render partial: 'shared/search_form'
+
   = render partial: 'shared/recent_searches', locals: {searches: @recent_searches}

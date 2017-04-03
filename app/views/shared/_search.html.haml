@@ -1,9 +1,0 @@
-.search
-  %h1 Search Soundcloud using the form below
-
-  .form
-    %form(action='/search')
-      %input(type='text' name='q' value="#{params[:q]}")
-      %input.btn(type='submit')
-
-  = render partial: 'results' if params[:q].present?

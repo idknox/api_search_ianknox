@@ -9,5 +9,5 @@
         %h1= type.titleize.pluralize
         %ul
           - results.each do |result|
-            = link_to result[:uri] do
+            = link_to result[:permalink_url], target: '_blank' do
               %li= result[:title] || result[:username]
