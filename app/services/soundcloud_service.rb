@@ -1,6 +1,6 @@
 class SoundcloudService
   def initialize
-    @client = SoundCloud.new(:client_id => ENV['SOUNDCLOUD_CLIENT_ID'])
+    @client = SoundCloud.new(client_id: ENV['SOUNDCLOUD_CLIENT_ID'])
   end
 
   def search_api(path, q)
